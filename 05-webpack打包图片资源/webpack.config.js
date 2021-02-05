@@ -19,6 +19,7 @@ module.exports = {
         options: {
           limit: 8 * 1024,
           esModule: false,
+          name: '[hash:10].[ext]'
         }
       }, {
         test: /\.html$/,
