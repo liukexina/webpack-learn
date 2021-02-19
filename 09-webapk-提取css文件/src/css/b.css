@@ -1,0 +1,11 @@
+#box1, #box2 {
+  font-size: 20px;
+}
+
+#box {
+  width: 200px;
+  height: 200px;
+  background-image: url('../img/one.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

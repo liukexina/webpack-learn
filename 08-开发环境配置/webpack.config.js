@@ -33,6 +33,7 @@ module.exports = {
         loader: 'html-loader',
       },
       {
+        // 排除
         exclude: /\.(css|js|html|jpg|png|jpeg|less)$/,
         loader: 'file-loader',
         options: {
@@ -47,7 +48,7 @@ module.exports = {
   })],
   mode: 'development',
   devServer: {
-    // 项目构建后的路径
+    // 项目构建后的路径，告诉服务器从哪里提供内容
     contentBase: resolve(__dirname, 'build'),
     // 开启gzip压缩
     compress: true,
@@ -55,5 +56,7 @@ module.exports = {
     port: 8080,
     // 自动打开浏览器
     open: true,
+    // 将用于确定应该从哪里提供 bundle，并且此选项优先
+    // publicPath: '/dist/'
   }
 }

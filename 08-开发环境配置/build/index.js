@@ -219,7 +219,7 @@ eval("module.exports = __webpack_require__.p + \"img/6a396247b7.jpg\";\n\n//# so
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "./";
+/******/ 		__webpack_require__.p = "/dist/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
