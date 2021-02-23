@@ -1,9 +1,10 @@
 const {resolve} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const autoprefixer = require('autoprefixer');
 
 // 设置nodejs环境变量, 默认为生产环境
-process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'development';
 
 module.exports = {
   entry: './src/js/index.js',
@@ -51,10 +52,17 @@ module.exports = {
               postcssOptions: {
                 //或者将插件引入写在单独的配置js中
                 //config: './config/postcss.config.js',
-                plugins: () => [
-                    require('postcss-preset-env')()
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {
+                      // options
+                    }
+                  ],
+                  // autoprefixer(['IE 10'])
                 ]
             }
+            // 老版本：
               // ident: 'postcss',
               // plugins: () => [
               //   // postcss的插件
