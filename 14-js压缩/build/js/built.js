@@ -1,0 +1,1 @@
+!function(){const o=new Promise((o=>{setTimeout((()=>{console.log("ok"),o()}),1e3)}));console.log(o),console.log(3)}();
