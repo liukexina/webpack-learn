@@ -7,9 +7,9 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (function() { // webpackBootstrap
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-eval("function add(x,y) {\n  return x + y\n}\n\nconsole.log(add(1,2))\n\n//# sourceURL=webpack:///./src/index.js?");
+/*!*************************!*\
+  !*** ./src/js/index.js ***!
+  \*************************/
+eval("function add(x, y) {\n  return x + y;\n}\n\n// eslint-disable-next-line\nconsole.log(add(1, 2));\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
 /******/ })()
 ;
