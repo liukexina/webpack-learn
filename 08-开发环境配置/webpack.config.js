@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: resolve(__dirname, 'build'),
-    publicPath: './'
+    publicPath: '/'
   },
   module: {
     rules: [
