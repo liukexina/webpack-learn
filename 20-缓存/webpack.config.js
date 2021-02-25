@@ -1,10 +1,27 @@
-const { resovle } = require('path');
+const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 设置nodejs环境变量, 默认为生产环境，决定使用browserslist哪个环境
 process.env.NODE_ENV = 'development';
+
+/*
+  缓存:
+    babel缓存
+      cacheDirectory: true
+      -->让第二次打包构建速度更快
+    文件资源缓存
+      hash:每次wepack 构建时会生成一个唯一 的hash值 。
+        问题:因为js和css同时使用一个hash值。
+        如果重新打包，会导致所有缓存失效。(可 能我却只改动一个文件) 
+      chunkhash:根据chunk生成的hash值。如果打包来源于同一个chunk，那么hash值就一样
+        问题: js和css的hash值还是一样的
+        因为css是在js中被引入的，所以同属于一-个chunk
+      contenthash:根据文件的内容生成hash值。不同文件hash值一定不一样
+
+      -->让代码上线运行缓存更好使用
+ */
 
 const commonCssLoader = [
 	MiniCssExtractPlugin.loader,
@@ -30,8 +47,8 @@ const commonCssLoader = [
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		filename: 'js/built.js',
-		path: resovle(__dirname, 'build'),
+		filename: 'js/built.[contenthash:10].js',
+		path: resolve(__dirname, 'build'),
 	},
 	module: {
 		rules: [
@@ -52,8 +69,8 @@ module.exports = {
 				},
 			},
 			{
-        // 以下loader只会匹配一个
-        // 注意：不能多个配置处理同一个类型的文件，需要提取出去，例如eslint-loader
+				// 以下loader只会匹配一个
+				// 注意：不能多个配置处理同一个类型的文件，需要提取出去，例如eslint-loader
 				oneOf: [
 					{
 						test: /\.css$/,
@@ -89,7 +106,10 @@ module.exports = {
 										},
 									},
 								],
-              ],
+							],
+							// 开启babel缓存
+							// 第二次构建时会读取之前的缓存
+							cacheDirectory: true,
 						},
 					},
 					{
@@ -121,12 +141,12 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			// 对输出的css文件进行重命名
-			// filename: 'css/built.css'
+			filename: 'css/built.[contenthash:10].css',
 		}),
 		new OptimizeCssAssetsWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
-			filename: 'built.html',
+			// filename: 'built.html',
 			// 压缩html代码
 			minify: {
 				// 移除空格
