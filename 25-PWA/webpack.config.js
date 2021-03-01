@@ -10,18 +10,6 @@ process.env.NODE_ENV = 'development';
 /*
 	PWA: 渐进式网络开发应用程序（离线可访问）
 		workbox --> workbox-webpack-plugin
-		前提: 1.必须使用ES6模块化 2. 开启production环境
-		作用:减少代码体积
-		
-		在package.json中配置
-		"sideEffects": false 所有代码都没有副作用（都可以进行tree shaking）
-		问题:
-			可能会把 css / @babel/polyfill (副作用) 文件干掉
-			sideEffects": ["*.css", "* .less"]
-
-	按需导入 和 tree shaking的区别：
-		按需导入: 需要什么引入什么
-		tree shaking: 即使引入了但没用到就会被过滤
  */
 
 const commonCssLoader = [
