@@ -8,12 +8,14 @@
     "jquery": "^3.5.1",
     "koa": "^2.13.1",
     "koa-static": "^5.0.0",
+    "thread-loader": "^3.0.1",
     "webpack": "^5.20.0",
     "webpack-cli": "^4.5.0"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.13.0",
+    "add-asset-html-webpack-plugin": "^3.2.0",
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
     "core-js": "^3.9.0",
@@ -33,7 +35,8 @@
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "workbox-webpack-plugin": "^6.1.1"
   },
   "browserslist": {
     "development": [
@@ -48,7 +51,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "env": {
+      "browser": true
+    }
   },
   "sideEffects": [
     "*.less"
