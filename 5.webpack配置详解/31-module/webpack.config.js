@@ -6,10 +6,28 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: resolve(__dirname, 'build'),
-    publicPath: '/',  // 所有资源引入公共路径前缀
-    chunkFilename:'[name]_chunk.js',  // 非入口chunk的名字
-    library: '[name]',  // 整个库向外暴露的变量名
-    libraryTarget: 'window'  // 变量名添加到哪个上 global/commonjs/amd/umd
+  },
+  module: {
+    rules: [
+      // loader配置
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']  // 多个loader用use
+      },
+      {
+        test: /\.js$/,
+        exclude: /\node_module$/,   // 排除node_module文件下的js文件
+        inclued: resolve(__dirname, 'src'),   // 只检查src下的js文件
+        enforce: 'pre',  // 优先执行
+        enforce: 'post', // 延后执行
+        loader: 'eslint-loader',  // 单个loader用loader
+        options: {}
+      },
+      {
+        // 以下配置只会生效一个
+        oneOf: []
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin()
