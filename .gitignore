@@ -12,3 +12,30 @@ npm-debug.log*
 .vscode
 tmp
 logs
+
+
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+01.react-cli/node_modules
+01.react-cli/.pnp
+01.react-cli/.pnp.js
+
+# testing
+01.react-cli/coverage
+
+# production
+01.react-cli/build
+
+# misc
+01.react-cli/.DS_Store
+01.react-cli/.env.local
+01.react-cli/.env.development.local
+01.react-cli/.env.test.local
+01.react-cli/.env.production.local
+
+01.react-cli/npm-debug.log*
+01.react-cli/yarn-debug.log*
+01.react-cli/yarn-error.log*
