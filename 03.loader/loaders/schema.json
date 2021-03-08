@@ -1,0 +1,10 @@
+{
+  "type" : "object",
+  "properties": {
+    "age": { 
+      "type": "number",
+      "description": "年龄"
+    }
+  },
+  "additionalProperties": true
+}
