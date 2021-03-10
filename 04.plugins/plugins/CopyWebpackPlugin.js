@@ -30,7 +30,7 @@ class CopyWebpackPlugin {
         const { from, ignore } = this.options;
         const to = this.options.to ? this.options.to : '.'
 
-        // 1.过滤ignor中的资源
+        // 1.过滤ignore中的资源
         // context就是webpack配置
         // 运行指定的目录
         const context = complier.options.context;  // process.cwd()
