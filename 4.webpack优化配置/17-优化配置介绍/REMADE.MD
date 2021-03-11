@@ -5,7 +5,8 @@
 
 ## 开发环境性能优化
 * 优化打包构建速度
- * HMR
+ * HMR  
+ 热模块替换
 * 优化代码调试  
  * source-map
 
@@ -14,11 +15,16 @@
  * oneOf
  * babel缓存
  * 多进程打包
- * externals
- * dll
+ * externals   
+ 拒绝某个库打包，而使用cdn
+ * dll        
+ 针对某些库单独打包
 * 优化代码运行的性能
  * 缓存（hash-chunkhash-contenthash)
- * tree shaking
+ * tree shaking    
+ 去除无用代码
  * code split
+ 代码分割
  * 懒加载/预加载
  * pwa
+ 离线加载
